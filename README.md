@@ -1,8 +1,8 @@
 # Auto-Backup-Python
 Backup script Python
 
-You'll find an english traduction below the french one.
-Les lignes suivantes seront traduites en anglais mais n'apportent pas d'informations complémentaires.
+You'll find an english traduction below the french one. Script will be translated in the same way in french and english.
+Les lignes suivantes seront traduites en anglais mais n'apportent pas d'informations complémentaires. Ne pas être étonné que le script soit commenté dans les deux langues. Celles-ci disent la même chose.
 
 Français :
 
