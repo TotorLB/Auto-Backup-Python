@@ -161,15 +161,15 @@ the backup and that you own all necessary stuff to access to the WordPress and i
   - os.system('tar -cvzf '+Serveur_mere['dir_to_backup']+'/wordpress_'+date+'.tar.gz '+Serveur_mere['dir_wordpress'])
    
    "tar" starts compressing file according to some specifics options with the letters added right after. Those letters are written with "-" before except in the case many letters are following each other (like in this script) where "-" will only be on the first letter.
-	# "-c" means "create". Tar is then working to create an archive .tar.
-	# "-v" means "verbose". It means that the computer will display more informations about the running actions for the user.
-	# "-z" means tar will read files through gzip, granting it to deal with many kinds of archives.
-	# "-f" means tar will work on a specified file. In this script, it uses informations given after.
-	# Because of "-f", tar archive will be : "/wordpress + "DATE DEFINED ABOVE" at .tar.gz format.
-	# File to copy and archive is found on 'dir_wordpress' already defined and will be saved on 'dir_to_backup'.
+	"-c" means "create". Tar is then working to create an archive .tar.
+	"-v" means "verbose". It means that the computer will display more informations about the running actions for the user.
+	"-z" means tar will read files through gzip, granting it to deal with many kinds of archives.
+	"-f" means tar will work on a specified file. In this script, it uses informations given after.
+	Because of "-f", tar archive will be : "/wordpress + "DATE DEFINED ABOVE" at .tar.gz format.
+	File to copy and archive is found on 'dir_wordpress' already defined and will be saved on 'dir_to_backup'.
    - os.system('tar -cvzf '+Serveur_mere['dir_to_backup']+'/wordpress_save_Update.tar.gz '+Serveur_mere['dir_wordpress'])
-	# Comme pour le premier "try", cette ligne, similaire à la précédente, est en fait une mise à jour de la première afin d'être certain de posséder toutes les informations à jour.
-	# Like the first "try", this line, looking like the previous one, is an updating command used to get all last informations.
+	Comme pour le premier "try", cette ligne, similaire à la précédente, est en fait une mise à jour de la première afin d'être certain de posséder toutes les informations à jour.
+	Like the first "try", this line, looking like the previous one, is an updating command used to get all last informations.
    
   - os.system('tar -cvzf '+Serveur_mere['dir_to_backup']+'/wordpress_save_Update.tar.gz '+Serveur_mere['dir_wordpress'])
    
