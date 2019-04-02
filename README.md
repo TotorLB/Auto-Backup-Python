@@ -39,7 +39,7 @@ difficulté.
   Résultat obtenu :
   
   Dans le répertoire que vous aurez assigné sur le script, vous retrouverez, sur le serveur distant, vos sauvegardes rangées selon leur nom avec la date.
-  ATTENTION : Utilisant le même nom, la sauvegarde faite deux fois le même jour, pour X raison, mènera à la perte de la première sauvegarde car celle-ci serait écrasée. Prenez donc soin de déplacer votre première sauvegarde si jamais vous souhaitiez en relancer une.
+  ATTENTION : Utilisant le même nom, la sauvegarde faite deux fois le même jour, pour X raison, mènerait à la perte de la première sauvegarde car celle-ci serait écrasée. Prenez donc soin de déplacer votre première sauvegarde si jamais vous souhaitiez en relancer une.
   
 -------------------------------------------------------------------------------------------------------------------------------
 
