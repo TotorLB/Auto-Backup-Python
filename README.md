@@ -59,6 +59,7 @@ Utilise la classe au-dessus pour créer une adresse selon un format précis de j
 	Enfin, la base de données pour le MySQLdump est créée, permettant de procéder à la sauvegarde.
    
   - os.system('mysqldump -u '+Serveur_mere['db_username']+' -p'+Serveur_mere['db_password']+' -d '+Serveur_mere['db_name']+' > '+Serveur_mere['dir_to_backup']+'/db_wordpress_backup_Update.sql')
+	
 	En reprenant la même logique de cheminement ci-dessus, la ligne permet de se connecter à la base de données puis de procéder à sa mise à jour, si nécessaire.
    
   - except BaseException as be:
