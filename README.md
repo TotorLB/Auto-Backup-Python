@@ -27,14 +27,14 @@ difficulté.
   
   Informations à modifier :
   
-  Pour ouvrir le fichier script, rendez-vous dans le répertoire correspondant avec la commande "cd" (Exemple : cd /etc/exemple). Utilisez nano, vi ou vim et entrez le nom du fichier. (Exemple : Vim backup.py). Il ne vous restera qu'à modifier les valeurs ou attributs souhaités.
-  Toutes les informations contenues dans les paramètres "serveur_mère" et "serveur_distant" doivent être convenablement remplis afin de permettre au script de fonctionner correctement.
+  Pour ouvrir le fichier script, rendez-vous dans le répertoire correspondant avec la commande "cd" (Exemple : cd /etc/exemple). Utilisez nano, vi ou vim et entrez le nom du fichier. (Exemple : vim backup.py). Il ne vous restera qu'à modifier les valeurs ou attributs souhaités.
+  Toutes les informations contenues dans les paramètres "serveur_mère" et "serveur_distant" doivent être convenablement remplies afin de permettre au script de fonctionner correctement.
   Pour l'utilisation de ce pour quoi le script a été conçu, changer les "X" des deux zones suffira à faire fonctionner le script et à obtenir une sauvegarde distante fonctionnelle.
   Afin de faciliter les opérations de modification, le script a été entièrement commenté et détaillé pour fournir le plus de renseignements possibles sur chaque ligne.
   
   Action mannuelle à effectuer :
   
-  Durant l'exécution du script, vous serez amené, durant la dernière partie du script, à entrer votre mot de passe de votre serveur distant. Si vous pouvez librement entrer le mot de passe dans le script afin d'entièrement l'automatiser, sachez que cela n'a pas été fait dans ce script afin de conserver une part de sécurité mais cela reste entièrement possible. Pour cela, il faudrait ajouter une catégorie mot de passe aux paramètres définis dans le serveur distant et ajouter cette variable sur la ligne adéquate (par défaut, le dernier "try" du script.)
+  Durant l'exécution du script, vous serez amené, durant la dernière partie du script, à entrer le mot de passe de votre serveur distant. Si vous pouvez librement entrer le mot de passe dans le script afin d'entièrement l'automatiser, sachez que cela n'a pas été fait dans ce script afin de conserver une part de sécurité mais cela reste entièrement possible. Pour cela, il faudrait ajouter une catégorie mot de passe aux paramètres définis dans le serveur distant et ajouter cette variable sur la ligne adéquate (par défaut, le dernier "try" du script.)
   
   Résultat obtenu :
   
@@ -47,7 +47,7 @@ difficulté.
   d = datetime.now()
 Donne le temps à l'instant T. Cette fonction est possible grâce à l'importation de "datetime".
   date = d.strftime("%Y_%m_%d")
-Utilise la classe au-dessus pour créer une adresse selon un format précis de jour, mois, année. Cette fonction est possible grâce à l'importation de "strftime" ci-dessus.
+Utilise la classe au-dessus pour créer une adresse selon un format précis d'année, mois, jour. Cette fonction est possible grâce à l'importation de "strftime" ci-dessus.
    - "Try" : La commande "try" permet d'essayer un ensemble de caractères afin d'y déceler une erreur. Si tel était le cas, la commande suivante "except" chercherait à indiquer l'origine de la faille. Si aucun problème n'est détecté, la commande entrée sera lancée.
    
   - os.system('mysqldump -u '+Serveur_mere['db_username']+' -p'+Serveur_mere['db_password']+' -d '+Serveur_mere['db_name']+' > '+Serveur_mere['dir_to_backup']+'/db_wordpress_backup_'+date+'.sql')
@@ -136,7 +136,7 @@ the backup and that you own all necessary stuff to access to the WordPress and i
    d = datetime.now()
    Gives actual time. This is done because of the importation of "datetime".
    date = d.strftime("%Y_%m_%d")
-   Uses the class defined above to give a formatted date like "day, month, year". The function is available because of the importation of "strftime".
+   Uses the class defined above to give a formatted date like "year, month, day". The function is available because of the importation of "strftime".
   - "Try" command lets a block of characters to be used in order to detect troubles. If some troubles were detected, the following command "except" would give an error message. If nothing gone wrong, the command will be sent and actions will be done.
    
   - os.system('mysqldump -u '+Serveur_mere['db_username']+' -p'+Serveur_mere['db_password']+' -d '+Serveur_mere['db_name']+' > '+Serveur_mere['dir_to_backup']+'/db_wordpress_backup_'+date+'.sql')
