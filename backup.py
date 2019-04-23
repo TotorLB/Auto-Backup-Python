@@ -12,18 +12,18 @@ date = d.strftime("%Y_%m_%d")	# Variable utilisant "d" pour en faire un format c
 chemin="/etc/projet/logs/"	# Chemin absolu des logs | Path for the logs.
 log = open(chemin+"log.log", "w")	# Création des logs | Creation of logs.
 serveur_mere = {	# serveur_mere means main_server
-	'dir_wordpress' : '/var/www/html/wordpress/',	# Où trouver le répertoire wordpress. | Where to find the wordpress repertory.
-	'dir_to_backup' : '/etc/projet/sauvegarde',	# Où mysqldump va sauvegarder son dump. | Where mysqldump will save its dump.
-	'dir_to_archive' : '/etc/projet/archive',	# Où tar va sauvegarder son archive. | Where tar will save its archive.
-	'db_username' : 'victor',			# Username de la database Wordpress. | Wordpress database's username.
-	'db_name' : 'projetv',				# Nom de la database Wordpress. | Wordpress database's name.
-	'db_password' : 'Azerty0#',			# Mot de passe de la database Wordpress. | Wordpress database's password.
+	'dir_wordpress' : '/XXX/XXX/XXX/',	# Où trouver le répertoire wordpress. | Where to find the wordpress repertory.
+	'dir_to_backup' : '/XXX/XXX/XXX',	# Où mysqldump va sauvegarder son dump. | Where mysqldump will save its dump.
+	'dir_to_archive' : '/XXX/XXX/XXX',	# Où tar va sauvegarder son archive. | Where tar will save its archive.
+	'db_username' : 'XXX',			# Username de la database Wordpress. | Wordpress database's username.
+	'db_name' : 'XXX',				# Nom de la database Wordpress. | Wordpress database's name.
+	'db_password' : 'XXX',			# Mot de passe de la database Wordpress. | Wordpress database's password.
 	}
 
 serveur_distant = {	# serveur_distant means remote_server
-	'dir' : '/etc/sauvegarde',			# Répertoire où va être stocké la sauvegarde. | Repertory where the archive will be sent.
-	'server' : '192.168.122.210',			# Adresse IP du serveur distant. | IP address of the remote server.
-	'login' : 'victor',				# Login du serveur distant. | Remote server's login.
+	'dir' : '/XXX/XXX',			# Répertoire où va être stocké la sauvegarde. | Repertory where the archive will be sent.
+	'server' : 'XXX.XXX.XXX.XXX',			# Adresse IP du serveur distant. | IP address of the remote server.
+	'login' : 'XXX',				# Login du serveur distant. | Remote server's login.
 	}
 
 if exists ('/usr/bin/mysqldump') == False:		# Les "if" suivants vont vérifier si les éléments nécessaires sont bien présents pour le script. | "If" will check if all elements are here.
