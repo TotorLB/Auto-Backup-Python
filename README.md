@@ -185,7 +185,7 @@ the backup and that you own all necessary stuff to access to the WordPress and i
 	"-d" words in the same way than "-p" but for the WordPress' name.
 	Finally, the database dump is created, allowing to make the backup.
    
-  - os.system('mysqldump -u '+Serveur_mere['db_username']+' -p'+Serveur_mere['db_password']+' -d '+Serveur_mere['db_name']+' > '+Serveur_mere['dir_to_backup']+'/db_wordpress_backup_Update.sql')
+  - os.system('mysqldump -u '+Serveur_mere['db_username']+' -p'+Serveur_mere['db_password']+' -d '+Serveur_mere['db_name']+' > '+Serveur_mere['dir_to_backup']+'/db_wordpress_backup_Latest.sql')
    
    Using the same way of doing, database is updated if needed.
    
@@ -206,13 +206,11 @@ the backup and that you own all necessary stuff to access to the WordPress and i
 	"-f" means tar will work on a specified file. In this script, it uses informations given after.
 	Because of "-f", tar archive will be : "/wordpress + "DATE DEFINED ABOVE" at .tar.gz format.
 	File to copy and archive is found on 'dir_wordpress' already defined and will be saved on 'dir_to_backup'.
-   - os.system('tar -cvzf '+Serveur_mere['dir_to_backup']+'/wordpress_save_Update.tar.gz '+Serveur_mere['dir_wordpress'])
+   
+   - os.system('tar -cvzf '+Serveur_mere['dir_to_backup']+'/wordpress_save_Latest.tar.gz '+Serveur_mere['dir_to_backup'])
 	Comme pour le premier "try", cette ligne, similaire à la précédente, est en fait une mise à jour de la première afin d'être certain de posséder toutes les informations à jour.
 	Like the first "try", this line, looking like the previous one, is an updating command used to get all last informations.
-   
-  - os.system('tar -cvzf '+Serveur_mere['dir_to_backup']+'/wordpress_save_Update.tar.gz '+Serveur_mere['dir_wordpress'])
-   
-   Like the first "try", this line, looking like the previous one, is an updating command used to get all last informations.
+
    
   - os.system('rsync -avrz '+Serveur_mere['dir_to_backup']+' '+Serveur_distant['login']+'@'+Serveur_distant['server']+':'+Serveur_distant['dir']+'/')
    
