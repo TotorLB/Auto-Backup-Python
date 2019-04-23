@@ -3,7 +3,7 @@
 
 import os	# Fonctionnalités importées à partir de l'OS. | Imports OS functions to the script.
 import time	# Importe la notion de temps. | Imports time concept.
-from os.path import exists
+from os.path import exists # Importe le module nécessaire pour vérifier l'existence d'un fichier. | Imports module necessary to check file's existence.
 from datetime import datetime	# Importe le temps de sorte à l'utiliser en heure, minutes, secondes. | Imports time in order to use it as hours, minutes and seconds.
 from time import strftime	# Importe le temps de sorte à en faire un argument formaté. | Imports time in order to use it as a formatted argument.
 
