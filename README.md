@@ -91,8 +91,10 @@ if exists (fichier) == False:
     show_usage()
     # Au cas où le fichier demandé n'existe pas. Attention au bon placement des fichiers.
 
-   # Configuration du fichier à lire. Les lignes seront lues dans l'ordre. Attention à donc les garder dans cet ordre.
-conf = open(fichier,"r")	# Ouverture du fichier associé au script. | File option is opened.
+ # Configuration du fichier à lire. Les lignes seront lues dans l'ordre. Attention à donc les garder dans cet ordre.
+
+conf = open(fichier,"r")	
+    # Ouverture du fichier associé au script.
 dir_to_backup = conf.readline()[16:-1]
 dir_to_archive = conf.readline()[17:-1]
 db_username = conf.readline()[14:-1]
