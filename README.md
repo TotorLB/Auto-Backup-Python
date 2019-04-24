@@ -18,7 +18,8 @@ Les lignes suivantes seront traduites en anglais mais n'apportent pas d'informat
   - Python.
   - Avoir mysqldump, tar et scp. (Possiblité de vérifier leur présence avec la commande "whereis" (Exemple : "Whereis mysqldump".)
   - Avoir deux machines pour envoyer/recevoir la sauvegarde ayant la possibilité de se joindre entre eux.
-  - Bien remplir les "X" avec les informations nécessaires.
+  - Bien remplir les blancs avec les informations nécessaires sur le fichier "script.cfg"
+  - Avoir correctement placé le fichier "script.cfg" fourni dans la liste dans le dossier /tmp. Attention, le dossier est supprimé au relancement. Il peut être placé ailleurs mais le chemin devra être modifié. (Voir dans le script).
   - Suivre le guide d'installation d'une clé de sécurité pour SSH. (ci-dessous)
   
   Clé de sécurité pour SSH :
@@ -57,6 +58,50 @@ Donne le temps à l'instant T. Cette fonction est possible grâce à l'importati
   date = d.strftime("%Y_%m_%d")
 Utilise la classe au-dessus pour créer une adresse selon un format précis d'année, mois, jour. Cette fonction est possible grâce à l'importation de "strftime" ci-dessus.
    - "Try" : La commande "try" permet d'essayer un ensemble de caractères afin d'y déceler une erreur. Si tel était le cas, la commande suivante "except" chercherait à indiquer l'origine de la faille. Si aucun problème n'est détecté, la commande entrée sera lancée.
+   
+   try:
+    opts, args = getopt.getopt(argv[1:], "hf:", ["help", "fichier="])
+    # Les paramètres sont listés.
+except getopt.GetoptError, err:
+    # S'il y a une erreur durant "try", "except" sera lancée.
+    print str(err)
+    # Affichage de l'erreur.
+    show_usage()
+    # Affiche l'aide.
+
+if opts.__len__() == 0:
+    # S'il n'y a aucun paramètre, erreur. Affiche l'aide.
+    show_usage()
+
+fichier = None
+    # Création d'une variable vide.
+
+for option, value in opts:	
+     # Pour option, la valeur sera entre parenthèses dans les "if" suivants. C'est à dire que taper cette option aura pour effet de lancer la commande affichée en-dessous.
+    if option in ('-h', '--help'):
+        show_usage()
+    elif option in ('-f', '--fichier'):
+        fichier = value
+    else:
+        print "Paramètre inconnu. Unknown parameter used."
+        show_usage()
+
+if exists (fichier) == False:
+    print "Le fichier de configuration n'existe pas. Configuration file does not exist."
+    show_usage()
+    # Au cas où le fichier demandé n'existe pas. Attention au bon placement des fichiers.
+
+    # Configuration du fichier à lire. Les lignes seront lues dans l'ordre. Attention à donc les garder dans cet ordre.
+conf = open(fichier,"r")	# Ouverture du fichier associé au script. | File option is opened.
+dir_to_backup = conf.readline()[16:-1]
+dir_to_archive = conf.readline()[17:-1]
+db_username = conf.readline()[14:-1]
+db_name = conf.readline()[10:-1]
+db_password = conf.readline()[14:-1]
+dir_cible = conf.readline()[12:-1]
+ip_cible = conf.readline()[11:-1]
+login_cible = conf.readline()[14:-1]
+conf.close()
    
   - if exists ('/usr/bin/mysqldump') == False: va vérifier si tel objet (mysqldump dans ce cas) n'existe pas. Si tout se passe bien, le script lancera le else avec un message indiquant la présence des éléments nécessaires.
   
@@ -126,7 +171,7 @@ the backup and that you own all necessary stuff to access to the WordPress and i
   - Python.
   - To have mysqldump, tar et scp. (You can check if they're here with "whereis" (Example : "Whereis mysqldump".)
   - To have two machines to send/get the backup.
-  - Fill the "X" with the right informations.
+  - Fill the blanks space with the right informations in script.cfg.
   - Follow the keygenerator guide (right under)
   
   SSH key generator :
@@ -139,7 +184,7 @@ the backup and that you own all necessary stuff to access to the WordPress and i
   
   Installation :
   
-  Once script had been downloaded, make sure you've got all rights needed to make it run. To execute the script, use the command : "./backup.py".
+  Once script and "script.cfg" had been downloaded, make sure you've got all rights needed to make them run. Set "script.cfg" in the right folder (by default : /tmp/) (WARNING : /tmp/ are for temporary files. You can modify the path directly in the script if you want to make it permanent.) To execute the script, use the command : "./backup.py".
   If you didn't have the needed rights, go to the repertory where it is stored and use the command "chmod" to change yours rights.
   
   Informations to modify :
@@ -151,7 +196,7 @@ the backup and that you own all necessary stuff to access to the WordPress and i
   
   Manual operation needed (IF YOU DIDN'T USE THE KEY GENERATOR) :
   
-  During the execution of the script, you'll be asked, at the last part, to type your password. This had been set for security reason defined in the script. Please, consider you may make this script totally working without any human touching. For this, just add to the remote server area a new parameter for password. This done, you just have to add this new argument to the last "try" line to make it auto fill with your password.
+  During the execution of the script, you'll be asked, at the last part, to type your password. This had been set for security reason defined in the script. Please, consider you may make this script totally working without any human touching. For this, just follow the key generator guide above.
   
   Expected result :
   
@@ -160,12 +205,56 @@ the backup and that you own all necessary stuff to access to the WordPress and i
 
    Description of each line :
    
+   
   - "Import" (os, time, date, strftime) imports a module into the script in order to use its functionnalities in the script.
    d = datetime.now()
    Gives actual time. This is done because of the importation of "datetime".
    date = d.strftime("%Y_%m_%d")
    Uses the class defined above to give a formatted date like "year, month, day". The function is available because of the importation of "strftime".
   - "Try" command lets a block of characters to be used in order to detect troubles. If some troubles were detected, the following command "except" would give an error message. If nothing gone wrong, the command will be sent and actions will be done.
+   
+   try:
+    opts, args = getopt.getopt(argv[1:], "hf:", ["help", "fichier="])
+    # Parameters are listed.
+except getopt.GetoptError, err:
+    # If there's an error during "try", "except" will be launched.
+    print str(err)
+    # Error is displayed on monitor.
+    show_usage()
+    # Help is displayed.
+    
+if opts.__len__() == 0: 
+    # If there's no parameter, error. Displays help.
+    show_usage()
+
+fichier = None 
+    # Empty variable is created.
+
+for option, value in opts:
+	# For option, value will be in ( ) in the following "if". This means that if you use the script with the options defined below, you'll get a result according to the defined options. For example, "./backup.py -h" will display you all the help needed to make sure the script and the "script.cfg" run together right.
+    if option in ('-h', '--help'):
+        show_usage()
+    elif option in ('-f', '--fichier'):
+        fichier = value
+    else:
+        print "Unknown parameter used."
+        show_usage()
+
+if exists (fichier) == False:
+    print "Le fichier de configuration n'existe pas. Configuration file does not exist."
+    show_usage()
+
+    # File configuration. Please, keep these lines in the same order as they appear in "script.cfg" to ensure everything is done with no trouble.
+conf = open(fichier,"r")	# Ouverture du fichier associé au script. | File option is opened.
+dir_to_backup = conf.readline()[16:-1]
+dir_to_archive = conf.readline()[17:-1]
+db_username = conf.readline()[14:-1]
+db_name = conf.readline()[10:-1]
+db_password = conf.readline()[14:-1]
+dir_cible = conf.readline()[12:-1]
+ip_cible = conf.readline()[11:-1]
+login_cible = conf.readline()[14:-1]
+conf.close()
    
    - if exists ('/usr/bin/mysqldump') == False: will check if something is missing. If none is missing, the monitor will display a message saying everything is here. If not, make sure the path aren't change on your computer.
   
