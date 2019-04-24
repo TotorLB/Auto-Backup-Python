@@ -91,18 +91,27 @@ if exists (fichier) == False:
     show_usage()
     # Au cas où le fichier demandé n'existe pas. Attention au bon placement des fichiers.
 
- # Configuration du fichier à lire. Les lignes seront lues dans l'ordre. Attention à donc les garder dans cet ordre.
+	# Attention à bien garder cette configuration (script.cfg) dans l'ordre afin de faire fonctionner le script.
 
 conf = open(fichier,"r")	
     # Ouverture du fichier associé au script.
+
 dir_to_backup = conf.readline()[16:-1]
+
 dir_to_archive = conf.readline()[17:-1]
+
 db_username = conf.readline()[14:-1]
+
 db_name = conf.readline()[10:-1]
+
 db_password = conf.readline()[14:-1]
+
 dir_cible = conf.readline()[12:-1]
+
 ip_cible = conf.readline()[11:-1]
+
 login_cible = conf.readline()[14:-1]
+
 conf.close()
    
   - if exists ('/usr/bin/mysqldump') == False: va vérifier si tel objet (mysqldump dans ce cas) n'existe pas. Si tout se passe bien, le script lancera le else avec un message indiquant la présence des éléments nécessaires.
