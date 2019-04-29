@@ -38,8 +38,7 @@ Les lignes suivantes seront traduites en anglais mais n'apportent pas d'informat
   Informations à modifier :
   
   Pour ouvrir le fichier script, rendez-vous dans le répertoire correspondant avec la commande "cd" (Exemple : cd /etc/exemple). Utilisez nano, vi ou vim et entrez le nom du fichier. (Exemple : vim backup.py). Il ne vous restera qu'à modifier les valeurs ou attributs souhaités.
-  Toutes les informations contenues dans les paramètres "serveur_mere" et "serveur_distant" doivent être convenablement remplies afin de permettre au script de fonctionner correctement.
-  Pour l'utilisation de ce pour quoi le script a été conçu, changer les "X" des deux zones suffira à faire fonctionner le script et à obtenir une sauvegarde distante fonctionnelle.
+  Pour l'utilisation de ce pour quoi le script a été conçu, changer les "X" suffira à faire fonctionner le script et à obtenir une sauvegarde distante fonctionnelle. Attention à bien laisser dans le même ordre les informations données.
   
   Action mannuelle à effectuer (SI VOUS N'AVEZ PAS UTILISÉ LE GÉNÉRATEUR DE CLÉS) :
   
