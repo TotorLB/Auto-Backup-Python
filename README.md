@@ -32,7 +32,7 @@ Les lignes suivantes seront traduites en anglais mais n'apportent pas d'informat
   
   Installation :
   
-  Une fois le script téléchargé sur votre machine, assurez-vous de posséder les droits pour son exécution. Pour lancer le script, la commande "./backup.py" doit être entrée.
+  Une fois le script téléchargé sur votre machine, assurez-vous de posséder les droits pour son exécution. Pour lancer le script, la commande "./backup.py -f "NOM DU FICHIER"" doit être entrée.
   Si vous ne possédiez pas les droits nécessaires, rendez-vous dans le répertoire du fichier et utilisez la commande "chmod" pour modifier vos droits dessus.
   
   Informations à modifier :
