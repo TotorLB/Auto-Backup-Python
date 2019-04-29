@@ -55,7 +55,7 @@ Les lignes suivantes seront traduites en anglais mais n'apportent pas d'informat
   d = datetime.now()
 Donne le temps à l'instant T. Cette fonction est possible grâce à l'importation de "datetime".
   date = d.strftime("%Y_%m_%d")
-Utilise la classe au-dessus pour créer une adresse selon un format précis d'année, mois, jour. Cette fonction est possible grâce à l'importation de "strftime" ci-dessus.
+Utilise la variable au-dessus pour créer une adresse selon un format précis d'année, mois, jour. Cette fonction est possible grâce à l'importation de "strftime" ci-dessus.
    - "Try" : La commande "try" permet d'essayer un ensemble de caractères afin d'y déceler une erreur. Si tel était le cas, la commande suivante "except" chercherait à indiquer l'origine de la faille. Si aucun problème n'est détecté, la commande entrée sera lancée.
    
    try:
